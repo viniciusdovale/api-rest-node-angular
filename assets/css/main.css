@@ -1,0 +1,42 @@
+body select {
+	display: inline-block;
+}
+[disabled] {
+	background-color: #ccc !important;
+}
+.container {
+	max-width: 600px !important;
+}
+.transition {
+	transition: all linear 0.5s;
+	opacity: 1;
+}
+.ng-hide{
+	opacity: 0;
+}
+.item.ng-enter,
+.item.ng-leave,
+.item.ng-move {
+	-webkit-transition: all linear 0.3s;
+	transition: all linear 0.3s;
+	
+}
+.item.ng-leave,
+.item.ng-move.ng-move-active {
+	opacity: 1;
+}
+.item.ng-enter,
+.item.ng-leave.ng-leave-active,
+.item.ng-move {
+	opacity: 0;
+}
+.selected {
+	background-color: #ccc;
+}
+.ng-valid {
+	background-color: #B4E5C4;
+}
+.invalid input{
+	background-color: red;
+	color: #fff;
+}

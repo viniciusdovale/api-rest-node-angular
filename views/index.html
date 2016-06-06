@@ -1,0 +1,42 @@
+<div class="row">
+  <label>
+    <input type="text" id="nome" placeholder="Digite o usuário" data-ng-model="form.UserGithub.nome">
+  </label>
+  <label>
+    <input type="text" id="time" placeholder="Digite o Time" data-ng-model="form.UserGithub.time">
+  </label>
+
+  <button data-ng-click="UserGithub.add(form.UserGithub)">Adicionar usuário</button>
+</div>
+<div class="row">
+  <table class="highlight responsive-table">
+    <thead>
+    <tr>
+      <th colspan="4">
+        <input type="text" data-ng-model="searchUser" data-ng-model-options="{debounce: 1000}" placeholder="Buscar" >
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th data-ng-click="User.orderByName()">Nome</th>
+      <th data-ng-click="User.orderByEmail()">Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-class="{selected: user.selecionado}" class="item" data-ng-repeat="user in UserGithub.user | filter:searchUser | orderBy:UserGithub.predicate:UserGithub.reverse ">
+      <td>
+        <input type="checkbox" id="user-{{$index}}" ng-model="user.selecionado">
+        <label for="user-{{$index}}"></label>
+      </td>
+      <td>{{ user.nome }}</td>
+      <td>{{ user.time }}</td>
+      <td>
+        <button data-ng-click="UserGithub.user.edit(user, $index)"  class="waves-effect waves-light btn btn-large blue col s12" name="action">Editar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <button data-ng-click="UserGithub.user.remove(UserGithub.user.user)" class="waves-effect waves-light btn btn-large col s12 red">Remover usuário</button>
+</div>
